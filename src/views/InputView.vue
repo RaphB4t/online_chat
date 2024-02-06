@@ -1,6 +1,7 @@
 <script setup>
 
 import { ref,computed} from 'vue';
+import CustomButton from '../components/CustomButton.vue';
 const emit = defineEmits(['sendMessage'])
 
 const message = ref();
@@ -8,7 +9,7 @@ const props = defineProps(["nbMessages"])
 const nbMessage = props.nbMessages
 
 function envoyerMessage(){
-    if(message.value != null){
+    if(message.value != null && message.value != "" && message.value != undefined){
         emit("sendMessage",{message:message.value})
         message.value=""
     }
@@ -19,12 +20,14 @@ function envoyerMessage(){
     <p id="nbMessage">Vous avez {{ nbMessage }} messages</p>
     <div id="input-area">
         <input id="messageInput" class="bg-gray-500 rounded-md" type="text" v-model=message width="20%">
-        <button @click="envoyerMessage()"><img src="/images/sendIcon.png" width="35px" alt=""></button>
+        <CustomButton @click="envoyerMessage()">
+            Envoyer <img src="/images/sendIcon.png" width="35px" alt="">
+        </CustomButton>
+        <!--<button @click="envoyerMessage()"><img src="/images/sendIcon.png" width="35px" alt=""></button>-->
     </div>
 </template>
 
 <style>
-
 
 #nbMessage{
     display: flex;
