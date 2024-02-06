@@ -16,16 +16,17 @@ function envoyerMessage(){
 
 </script>
 <template>
-    <p>Vous avez {{ nbMessage }} messages</p>
-        <div id="input-area">
+    <p id="nbMessage">Vous avez {{ nbMessage }} messages</p>
+    <div id="input-area">
         <input id="messageInput" class="bg-gray-500 rounded-md" type="text" v-model=message width="20%">
         <button @click="envoyerMessage()"><img src="/images/sendIcon.png" width="35px" alt=""></button>
     </div>
 </template>
 
 <style>
-#page{
-    min-height: 100vh;
+
+
+#nbMessage{
     display: flex;
     flex-direction: column;
 }
