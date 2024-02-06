@@ -1,36 +1,26 @@
 <script setup>
 
 import { ref,computed} from 'vue';
+const emit = defineEmits(['sendMessage'])
 
-const sendMessage = ref();
-const messages = ref(["aa","b"]);
-
-const nbMessages = computed(()=> `Vous avez ${messages.value.length} messages`)
+const message = ref();
+const props = defineProps(["nbMessages"])
+const nbMessage = props.nbMessages
 
 function envoyerMessage(){
-    if(sendMessage != ""){
-        messages.value.push(sendMessage.value);
-        sendMessage.value=""
+    if(message.value != null){
+        emit("sendMessage",{message:message.value})
+        message.value=""
     }
-}
-
-function modifier(m){
-    sendMessage.value = m.value;
 }
 
 </script>
 <template>
-<div id="page">
-    <div id="content" class="bg-gray-500">
-        <p v-for=" m in messages" :key="m">{{m}} <button @onclick="modifier(m)">Modif</button></p>
-    </div>
-    
-        <p id="nbMessage">{{nbMessages}}</p>
+    <p>Vous avez {{ nbMessage }} messages</p>
         <div id="input-area">
-        <input id="messageInput" class="bg-gray-500 rounded-md" type="text" v-model=sendMessage width="20%">
+        <input id="messageInput" class="bg-gray-500 rounded-md" type="text" v-model=message width="20%">
         <button @click="envoyerMessage()"><img src="/images/sendIcon.png" width="35px" alt=""></button>
     </div>
-</div>
 </template>
 
 <style>
