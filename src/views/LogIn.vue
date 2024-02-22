@@ -13,16 +13,12 @@ const supabase = createClient(url, anon)
 const email = ref()
 const password = ref()
 
-async function signUp() {
-    const { data, error } = await supabase.auth.signUp({
+async function logIn() {
+    const { data, error } = await supabase.auth.signInWithPassword({
     email: email.value,
     password: password.value,
   })
-    // payload = {
-    //     email: email.value,
-    //     password: password.value
-    // }
-    router.push('/')
+  router.push('/')
 }
 
 </script>
@@ -37,6 +33,6 @@ async function signUp() {
             Password:
             <input class="text-black p-1" type="password" placeholder="password" v-model="password">
         </label>
-        <button class="p-2 bg-blue-600 border-black border-4 rounded-full" @click="signUp">Sign up and chat !</button>
+        <button class="p-2 bg-blue-600 border-black border-4 rounded-full" @click="logIn">Log in and chat !</button>
     </div>
 </template>

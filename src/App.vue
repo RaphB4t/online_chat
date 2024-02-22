@@ -1,12 +1,11 @@
 <script setup>
 import { RouterView } from 'vue-router';
-import ChatView from './views/ChatView.vue';
 
 </script>
 
 <template>
 
-<RouterView/> <!--Pas chatView pour utiliser notre routeur-->
+<RouterView/> <!--Pas chatView pour utiliser notre route-->
 
 
 </template>
