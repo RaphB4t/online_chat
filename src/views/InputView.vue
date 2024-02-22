@@ -21,7 +21,7 @@ function envoyerMessage(){
     <div id="input-area">
         <input id="messageInput" class="bg-gray-500 rounded-md" type="text" v-model=message width="20%">
         <CustomButton @click="envoyerMessage()">
-            Envoyer <img src="/images/sendIcon.png" width="35px" alt="">
+            <img src="/images/sendIcon.png" width="35px" alt="">
         </CustomButton>
         <!--<button @click="envoyerMessage()"><img src="/images/sendIcon.png" width="35px" alt=""></button>-->
     </div>
@@ -48,7 +48,10 @@ function envoyerMessage(){
 
 #input-area{
     display: flex;
+    justify-content: center;
     align-items: center;
     align-self: center;
+    margin-bottom: 1%;
 }
+
 </style>
