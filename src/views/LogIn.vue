@@ -1,8 +1,9 @@
 <script setup>
 import { ref } from "vue"
 import { createClient } from '@supabase/supabase-js'
-import router from "../router/main_router";
+import {useRouter} from "vue-router";   //bonne pratique
 
+const router = useRouter()
 
 const url ="https://xzhmfiwrnzzunouxywvd.supabase.co"
 
