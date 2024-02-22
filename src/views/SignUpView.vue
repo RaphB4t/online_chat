@@ -1,28 +1,12 @@
 <script setup>
 import { ref } from "vue"
-import { createClient } from '@supabase/supabase-js'
-import router from "../router/main_router";
-
-
-const url ="https://xzhmfiwrnzzunouxywvd.supabase.co"
-
-const anon = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Inh6aG1maXdybnp6dW5vdXh5d3ZkIiwicm9sZSI6ImFub24iLCJpYXQiOjE3MDg2MDM1MDgsImV4cCI6MjAyNDE3OTUwOH0.kjRYMu70d_fq_reQsJOmSnnsD6gYvkqsVwWIb8_i1uc"
-
-const supabase = createClient(url, anon)
+import {signUp} from "../api/auth"
 
 const email = ref()
 const password = ref()
 
-async function signUp() {
-    const { data, error } = await supabase.auth.signUp({
-    email: email.value,
-    password: password.value,
-  })
-    // payload = {
-    //     email: email.value,
-    //     password: password.value
-    // }
-    router.push('/')
+function signup(){
+    signUp(email.value,password.value)
 }
 
 </script>
@@ -37,6 +21,7 @@ async function signUp() {
             Password:
             <input class="text-black p-1" type="password" placeholder="password" v-model="password">
         </label>
-        <button class="p-2 bg-blue-600 border-black border-4 rounded-full" @click="signUp">Sign up and chat !</button>
+        <button class="p-2 bg-blue-600 border-black border-4 rounded-full" @click="signup">Sign up and chat !</button>
+        <a :href="href" @click="">déja un compte ? se connecter.</a>
     </div>
 </template>
