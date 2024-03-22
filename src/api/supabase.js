@@ -1,9 +1,14 @@
 import { createClient } from '@supabase/supabase-js'
 
-const url ="https://xzhmfiwrnzzunouxywvd.supabase.co"
+export default function useSupabase(){
 
-const anon = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Inh6aG1maXdybnp6dW5vdXh5d3ZkIiwicm9sZSI6ImFub24iLCJpYXQiOjE3MDg2MDM1MDgsImV4cCI6MjAyNDE3OTUwOH0.kjRYMu70d_fq_reQsJOmSnnsD6gYvkqsVwWIb8_i1uc"
+    const url ="https://lqquzolvtqkjdfafaxle.supabase.co"
 
-const supabase = createClient(url, anon)
+    const anon = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImxxcXV6b2x2dHFramRmYWZheGxlIiwicm9sZSI6ImFub24iLCJpYXQiOjE3MDcxNDgzMDMsImV4cCI6MjAyMjcyNDMwM30.bLuNrn5zZl0_FRtmLyrLA7BzePUhqTPmGTwga6AYZlE"
+    
+    const supabase = createClient(url, anon)
+    
+    return {supabase}
 
-export default supabase
+}
+

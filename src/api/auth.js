@@ -1,7 +1,9 @@
-import supabase from "./supabase"
+
 import {useRouter} from "vue-router";   //bonne pratique
 import router from "../router/main_router";
-// const router = useRouter()
+import useSupabase from "../api/supabase"
+
+const {supabase} = useSupabase()
 
 async function signUp(email,password) {
     const { data, error } = await supabase.auth.signUp({
